@@ -22,6 +22,11 @@ public class Hotel {
 		this.endereco = endereco;
 
 	}
+	
+	public Hotel (int id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
 
 	public int getId() {
 		return id;
@@ -37,6 +42,14 @@ public class Hotel {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	public List<Quarto> getQuartos() {
