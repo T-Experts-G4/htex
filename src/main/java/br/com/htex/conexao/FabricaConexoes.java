@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class FabricaConexao {
+public class FabricaConexoes {
 
 	
 	public static Connection criaConexao() throws SQLException {
