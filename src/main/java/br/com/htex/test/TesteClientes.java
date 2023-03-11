@@ -1,6 +1,10 @@
 package br.com.htex.test;
 
 import java.sql.SQLException;
+import java.util.List;
+
+import br.com.htex.dao.ClienteDao;
+import br.com.htex.model.Cliente;
 
 
 public class TesteClientes {
@@ -8,19 +12,19 @@ public class TesteClientes {
 	public static void main(String[] args) throws SQLException {
 		
 //		//    Cria Cliente
-//		ClienteDao clienteDao = new ClienteDao();
-//		Cliente cliente = new Cliente("85987876464","adriano@tex.com",1);
-//		clienteDao.insere(cliente);
-//		
-//		System.out.println("    ");
-//		System.out.println("    ");
-//		
-//		//Lista Clientes
-//		List<Cliente> clientes = new ClienteDao().lista();
-//		clientes.forEach(c -> System.out.println(c.getEmail()+" "+ c.getTelefone()));
-//		
-//		System.out.println("    ");
-//		System.out.println("    ");
+		ClienteDao clienteDao = new ClienteDao();
+		Cliente cliente = new Cliente("85987876464","adriano@tex.com",1);
+		clienteDao.insere(cliente);
+		
+		System.out.println("    ");
+		System.out.println("    ");
+		
+		//Lista Clientes
+		List<Cliente> clientes = new ClienteDao().lista();
+		clientes.forEach(c -> System.out.println(c.getEmail()+" "+ c.getTelefone()));
+		
+		System.out.println("    ");
+		System.out.println("    ");
 //		
 //		//Atualiza cliente
 //		

@@ -35,7 +35,7 @@ public class Funcionario extends Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	@Override
 	public String getSenha() {
 
 		return senha;

@@ -7,17 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.htex.conexao.FabricaConexao;
+import br.com.htex.conexao.FabricaConexoes;
 import br.com.htex.model.Usuario;
-
 
 public class UsuarioDao {
 
 	
 	public void insere(Usuario usuario) throws SQLException {
-		Connection conn = FabricaConexao.criaConexao();
+		Connection conn = FabricaConexoes.criaConexao();
 		
-		String sql = "insert into usuario (nome, senha) values (?,?)";
+		String sql = "INSERT INTO usuarios (nome, senha) VALUE (?, ?)";
 		PreparedStatement st = conn.prepareStatement(sql);
 		st.setString(1, usuario.getNome());
 		st.setString(2, usuario.getSenha());
@@ -27,20 +26,19 @@ public class UsuarioDao {
 		
 		st.close();
 		conn.close();
-		return;
 	}
 	
 	public List<Usuario> lista() throws SQLException {
-		Connection conn = FabricaConexao.criaConexao();
+		Connection conn = FabricaConexoes.criaConexao();
 		
-		String sql = "select id, nome, senha from usuario";
+		String sql = "select * from usuarios";
 		PreparedStatement st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		
 		List<Usuario> usuarios = new ArrayList<>();
 		
 		while(rs.next()) {
-			Usuario usuario = new Usuario(rs.getInt(1),rs.getString(2),rs.getString(3));
+			Usuario usuario = new Usuario(rs.getInt(1), rs.getString(2),rs.getString(3));
 			usuarios.add(usuario);
 		}
 			rs.close();
@@ -51,9 +49,9 @@ public class UsuarioDao {
 	}
 	
 	public void atualiza(Usuario usuario) throws SQLException {
-	    Connection conn = FabricaConexao.criaConexao();
+	    Connection conn = FabricaConexoes.criaConexao();
 		
-		String sql = "update usuario set nome = ?, senha = ? where id = ?";
+		String sql = "update usuarios set nome = ?, senha = ? where id = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
 		st.setString(1, usuario.getNome());
 		st.setString(2, usuario.getSenha());
@@ -67,9 +65,9 @@ public class UsuarioDao {
 	}
 	
 	public void remove(int id) throws SQLException {
-		 Connection conn = FabricaConexao.criaConexao();
+		 Connection conn = FabricaConexoes.criaConexao();
 			
-			String sql = "delete from usuario where id = ?";
+			String sql = "delete from usuarios where id = ?";
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setInt(1, id);
 			
@@ -83,12 +81,13 @@ public class UsuarioDao {
 	public Usuario buscaPorId(int id) throws SQLException {
 		Usuario usuario = null;
 		
-		Connection conn = FabricaConexao.criaConexao();
+		Connection conn = FabricaConexoes.criaConexao();
 		
-		String sql = "select * from usuario where id = ?";
+		String sql = "select * from usuarios where id = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
 		st.setInt(1, id);
-		ResultSet rs = st.executeQuery();
+		st.execute();
+		ResultSet rs = st.getResultSet();
 		if(rs.next()) {
 			usuario = new Usuario(
 					rs.getInt("id"),

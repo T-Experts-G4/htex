@@ -1,7 +1,7 @@
 package br.com.htex.model;
 
 public class Usuario { //era uma classe abstrata - não instancia
-	private int usuarioId;
+	private int id;
 	protected String nome;
 	protected String senha;
 
@@ -9,7 +9,7 @@ public class Usuario { //era uma classe abstrata - não instancia
 	public Usuario() {}
 
 	public Usuario(int usuarioId, String nome, String senha) {
-		this.usuarioId = usuarioId;
+		this.id = usuarioId;
 		this.nome = nome;
 		this.senha = senha;
 	}
@@ -25,7 +25,7 @@ public class Usuario { //era uma classe abstrata - não instancia
 	}
 
 	public int getUsuarioId() {
-		return usuarioId;
+		return id;
 	}
 
 
@@ -39,7 +39,7 @@ public class Usuario { //era uma classe abstrata - não instancia
 	}
 
 	public void setUsuarioId(int usuarioId) {
-		this.usuarioId = usuarioId;
+		this.id = usuarioId;
 	}
 
 
@@ -55,7 +55,7 @@ public class Usuario { //era uma classe abstrata - não instancia
 
 	@Override
 	public String toString() {
-		return "Usuario [usuarioId=" + usuarioId + ", nome=" + nome + ", senha=" + senha + "]";
+		return "Usuario [usuarioId=" + id + ", nome=" + nome + ", senha=" + senha + "]";
 	}
 
 
