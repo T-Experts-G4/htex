@@ -1,39 +1,47 @@
 package br.com.htex.model;
 
-public class Quarto {
-	private int numero;
-	private double precoDiaria;
-	private boolean disponivel;
+import java.math.BigDecimal;
 
-	public Quarto(int numero, double precoDiaria) {
+public class Quarto {
+	private int id;
+	private int numero;
+	private BigDecimal precoDiaria;
+	private boolean disponivel;
+	private int hotelId;
+
+	public Quarto(int id, int numero, BigDecimal precoDiaria, boolean disponivel, int hotelId) {
+		this.id = id;
 		this.numero = numero;
 		this.precoDiaria = precoDiaria;
 		this.disponivel = true;
+		this.hotelId = hotelId;
 	}
-
+	
+	public int getId() {
+		return id;
+	}
+ 
 	public int getNumero() {
 		return numero;
 	}
 
-	public double getPrecoDiaria() {
+	public BigDecimal getPrecoDiaria() {
 		return precoDiaria;
-	}
-
-	public void setPrecoDiaria(double precoDiaria) {
-		this.precoDiaria = precoDiaria;
 	}
 
 	public boolean isDisponivel() {
 		return disponivel;
 	}
 
-	public void setDisponivel(boolean disponivel) {
-		this.disponivel = disponivel;
+	public int getHotelId() {
+		return hotelId;
 	}
-	
+
 	@Override
 	public String toString() {
-		
-		return "Quarto: " + numero + " Diaria: " + precoDiaria; 
+		return "Quarto [id=" + id + ", numero=" + numero + ", precoDiaria=" + precoDiaria + ", disponivel=" + disponivel
+				+ ", hotelId=" + hotelId + "]";
 	}
+	
+
 }

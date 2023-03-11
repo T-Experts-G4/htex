@@ -11,7 +11,7 @@ public class TesteAtualiza {
 		Usuario usuario = dao.buscaPorId(1);
 		System.out.println(usuario.getNome() + " " + usuario.getSenha());
 
-		usuario.setNome("Adriano Lucio");
+		usuario.setNome("remove");
 		usuario.setSenha("senhanova");
 
 		dao.atualiza(usuario);

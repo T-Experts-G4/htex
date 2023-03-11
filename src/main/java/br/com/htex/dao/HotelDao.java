@@ -7,14 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.htex.conexao.FabricaConexao;
-import br.com.htex.model.Cliente;
+import br.com.htex.conexao.FabricaConexoes;
 import br.com.htex.model.Hotel;
 
 public class HotelDao {
 	
 	public void insere (Hotel hotel) throws SQLException {
-		Connection conn = FabricaConexao.criaConexao();
+		Connection conn = FabricaConexoes.criaConexao();
 		
 		String sql = "insert into hoteis (id, nome, endereco) values (?,?,?)";
 		PreparedStatement st = conn.prepareStatement(sql);
@@ -29,7 +28,7 @@ public class HotelDao {
 	}
 	
 	public List<Hotel> lista() throws SQLException {
-		Connection conn = FabricaConexao.criaConexao();
+		Connection conn = FabricaConexoes.criaConexao();
 		
 		String sql = "select hotel.nome,hoteis.endereco,hoteis.nome from hoteis join hotel on hoteis.hotel_id=hotel.id";
 		PreparedStatement st = conn.prepareStatement(sql);
@@ -49,7 +48,7 @@ public class HotelDao {
 	}
 	
 	public void atualiza(Hotel hotel) throws SQLException {
-	    Connection conn = FabricaConexao.criaConexao();
+	    Connection conn = FabricaConexoes.criaConexao();
 		
 		String sql = "update hoteis set endereco = ?, nome = ? where id = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
@@ -65,7 +64,7 @@ public class HotelDao {
 	}
 	
 	public void remove(int id) throws SQLException {
-		 Connection conn = FabricaConexao.criaConexao();
+		 Connection conn = FabricaConexoes.criaConexao();
 			
 			String sql = "delete from hoteis where id = ?";
 			PreparedStatement st = conn.prepareStatement(sql);
@@ -81,7 +80,7 @@ public class HotelDao {
 	public Hotel buscaPorId(int id) throws SQLException {
 		Hotel hotel = null;
 		
-		Connection conn = FabricaConexao.criaConexao();
+		Connection conn = FabricaConexoes.criaConexao();
 		
 		String sql = "select * from hoteis where id = ?";
 		PreparedStatement st = conn.prepareStatement(sql);

@@ -1,23 +1,42 @@
 package br.com.htex.model;
 
-public class ServicoAdicional {
-	private String descricao;
-	private double preco;
+import java.math.BigDecimal;
 
-	public ServicoAdicional(String descricao, double preco) {
+public class ServicoAdicional {
+	private int id;
+	private String nome;
+	private String descricao;
+	private BigDecimal preco;
+	
+	public ServicoAdicional() {	}
+
+	public ServicoAdicional(int id, String nome, String descricao, BigDecimal preco) {
+		this.id = id;
+		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
+	}
+	
+	public ServicoAdicional(String nome, String descricao, BigDecimal preco) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public String getNome() {
+		return nome;
 	}
 
 	public String getDescricao() {
 		return descricao;
 	}
 
-	public double getPreco() {
+	public BigDecimal getPreco() {
 		return preco;
 	}
 	
-	public void setPreco(double preco) {
-	    this.preco = preco;
-	  }
 }
