@@ -8,5 +8,6 @@ public class TestaRemoveUsuario {
 	public static void main(String[] args) throws SQLException {
 		UsuarioDao dao = new UsuarioDao();
 		dao.remove(3);
+		System.out.println("Usuairo Removido");
 	}
 }

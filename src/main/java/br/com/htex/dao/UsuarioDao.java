@@ -14,10 +14,9 @@ public class UsuarioDao {
 
 	
 	public void insere(Usuario usuario) throws SQLException {
-//		Connection conn = FabricaConexoes.criaConexao();
 		Connection conn = FabricaConexoes.criaConexao();
 		
-		String sql = "insert into usuarios (nome, senha) value (?, ?)";
+		String sql = "INSERT INTO usuarios (nome, senha) VALUE (?, ?)";
 		PreparedStatement st = conn.prepareStatement(sql);
 		st.setString(1, usuario.getNome());
 		st.setString(2, usuario.getSenha());
@@ -39,7 +38,7 @@ public class UsuarioDao {
 		List<Usuario> usuarios = new ArrayList<>();
 		
 		while(rs.next()) {
-			Usuario usuario = new Usuario(rs.getString(2),rs.getString(3));
+			Usuario usuario = new Usuario(rs.getInt(1), rs.getString(2),rs.getString(3));
 			usuarios.add(usuario);
 		}
 			rs.close();

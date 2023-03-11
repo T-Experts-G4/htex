@@ -8,7 +8,7 @@ import br.com.htex.model.Usuario;
 public class TestaInsere {
 	public static void main(String[] args) throws SQLException {
 		UsuarioDao dao = new UsuarioDao();
-		Usuario user = new Usuario("Adriano","senha4");
+		Usuario user = new Usuario("Doony","senha4");
 		dao.insere(user);
 	}
  
